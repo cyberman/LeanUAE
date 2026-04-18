@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1DDD57D60DA1CFB400B32029 /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD57D40DA1CFB400B32029 /* main.xib */; };
-		84C32C0A2F939628003A3937 /* leuae-audio.c in Sources */ = {isa = PBXBuildFile; fileRef = 84C32C092F939628003A3937 /* leuae-audio.c */; };
-		84C32C0C2F939657003A3937 /* leuae-input.c in Sources */ = {isa = PBXBuildFile; fileRef = 84C32C0B2F939657003A3937 /* leuae-input.c */; };
-		84C32C0E2F93967E003A3937 /* leuae-video.c in Sources */ = {isa = PBXBuildFile; fileRef = 84C32C0D2F93967E003A3937 /* leuae-video.c */; };
-		84C32C102F9396A7003A3937 /* leuae-window.c in Sources */ = {isa = PBXBuildFile; fileRef = 84C32C0F2F9396A7003A3937 /* leuae-window.c */; };
+		84C32C752F940237003A3937 /* leuae-audio.c in Sources */ = {isa = PBXBuildFile; fileRef = 84C32C742F940237003A3937 /* leuae-audio.c */; };
+		84C32C772F940268003A3937 /* leuae-input.c in Sources */ = {isa = PBXBuildFile; fileRef = 84C32C762F940268003A3937 /* leuae-input.c */; };
+		84C32C792F94028D003A3937 /* leuae-video.c in Sources */ = {isa = PBXBuildFile; fileRef = 84C32C782F94028D003A3937 /* leuae-video.c */; };
+		84C32C7B2F9402AA003A3937 /* leuae-window.c in Sources */ = {isa = PBXBuildFile; fileRef = 84C32C7A2F9402AA003A3937 /* leuae-window.c */; };
 		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
 		8D0C4E900486CD37000505A6 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 20286C2BFDCF999611CA2CEA /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20286C33FDCF999611CA2CEA /* Carbon.framework */; };
@@ -23,12 +23,12 @@
 		20286C2BFDCF999611CA2CEA /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		20286C33FDCF999611CA2CEA /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		32DBCF6D0370B57F00C91783 /* LeUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeUAE_Prefix.pch; sourceTree = "<group>"; };
-		84C32C092F939628003A3937 /* leuae-audio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-audio.c"; path = "../Projekte/LeUAE/od-leopard/leuae-audio.c"; sourceTree = SOURCE_ROOT; };
-		84C32C0B2F939657003A3937 /* leuae-input.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-input.c"; path = "../Projekte/LeUAE/od-leopard/leuae-input.c"; sourceTree = SOURCE_ROOT; };
-		84C32C0D2F93967E003A3937 /* leuae-video.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-video.c"; path = "../Projekte/LeUAE/od-leopard/leuae-video.c"; sourceTree = SOURCE_ROOT; };
-		84C32C0F2F9396A7003A3937 /* leuae-window.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-window.c"; path = "../Projekte/LeUAE/od-leopard/leuae-window.c"; sourceTree = SOURCE_ROOT; };
-		84C32C112F939740003A3937 /* target.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = target.h; path = "../Projekte/LeUAE/od-leopard/target.h"; sourceTree = SOURCE_ROOT; };
-		84C32C122F93976E003A3937 /* sysconfig-leopard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "sysconfig-leopard.h"; path = "../Projekte/LeUAE/od-leopard/sysconfig-leopard.h"; sourceTree = SOURCE_ROOT; };
+		84C32C742F940237003A3937 /* leuae-audio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-audio.c"; path = "od-leopard/leuae-audio.c"; sourceTree = "<group>"; };
+		84C32C762F940268003A3937 /* leuae-input.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-input.c"; path = "od-leopard/leuae-input.c"; sourceTree = "<group>"; };
+		84C32C782F94028D003A3937 /* leuae-video.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-video.c"; path = "od-leopard/leuae-video.c"; sourceTree = "<group>"; };
+		84C32C7A2F9402AA003A3937 /* leuae-window.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-window.c"; path = "od-leopard/leuae-window.c"; sourceTree = "<group>"; };
+		84C32C7C2F9402CC003A3937 /* target.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = target.h; path = "od-leopard/target.h"; sourceTree = "<group>"; };
+		84C32C7D2F9402EB003A3937 /* sysconfig-leopard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "sysconfig-leopard.h"; path = "od-leopard/sysconfig-leopard.h"; sourceTree = "<group>"; };
 		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D0C4E970486CD37000505A6 /* LeUAE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeUAE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -67,12 +67,12 @@
 		20286C2AFDCF999611CA2CEA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				84C32C122F93976E003A3937 /* sysconfig-leopard.h */,
-				84C32C112F939740003A3937 /* target.h */,
-				84C32C0F2F9396A7003A3937 /* leuae-window.c */,
-				84C32C0D2F93967E003A3937 /* leuae-video.c */,
-				84C32C0B2F939657003A3937 /* leuae-input.c */,
-				84C32C092F939628003A3937 /* leuae-audio.c */,
+				84C32C7D2F9402EB003A3937 /* sysconfig-leopard.h */,
+				84C32C7C2F9402CC003A3937 /* target.h */,
+				84C32C7A2F9402AA003A3937 /* leuae-window.c */,
+				84C32C782F94028D003A3937 /* leuae-video.c */,
+				84C32C762F940268003A3937 /* leuae-input.c */,
+				84C32C742F940237003A3937 /* leuae-audio.c */,
 				32DBCF6D0370B57F00C91783 /* LeUAE_Prefix.pch */,
 				20286C2BFDCF999611CA2CEA /* main.c */,
 			);
@@ -153,10 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D0C4E900486CD37000505A6 /* main.c in Sources */,
-				84C32C0A2F939628003A3937 /* leuae-audio.c in Sources */,
-				84C32C0C2F939657003A3937 /* leuae-input.c in Sources */,
-				84C32C0E2F93967E003A3937 /* leuae-video.c in Sources */,
-				84C32C102F9396A7003A3937 /* leuae-window.c in Sources */,
+				84C32C752F940237003A3937 /* leuae-audio.c in Sources */,
+				84C32C772F940268003A3937 /* leuae-input.c in Sources */,
+				84C32C792F94028D003A3937 /* leuae-video.c in Sources */,
+				84C32C7B2F9402AA003A3937 /* leuae-window.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
