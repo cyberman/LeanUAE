@@ -1,14 +1,14 @@
 
-# LeUAE Host Interface
+# LeanUAE Host Interface
 
 ## Purpose
 
 This document defines the first host-facing attachment points at the edge of the UAE core.
 
 Its purpose is not to create a universal portability framework.
-Its purpose is to define a small, explicit set of contracts that allow LeUAE to host the core cleanly on Leopard.
+Its purpose is to define a small, explicit set of contracts that allow LeanUAE to host the core cleanly on Leopard.
 
-LeUAE has primacy.
+LeanUAE has primacy.
 
 However, these interfaces should be cut cleanly enough that a future native host could attach without structural regret.
 
@@ -32,7 +32,7 @@ The interface should stay small, explicit, and responsibility-driven.
 
 ## Scope of V1
 
-LeUAE V1 needs host attachment points for:
+LeanUAE V1 needs host attachment points for:
 
 - lifecycle control
 - video frame delivery
@@ -301,7 +301,7 @@ This document does not define:
     
 - skinning interfaces
     
-- controller abstraction beyond what LeUAE V1 actually needs
+- controller abstraction beyond what LeanUAE V1 actually needs
     
 - rich UI service layers
     
@@ -314,10 +314,10 @@ This document does not define:
 
 The host interface must stay honest.
 
-It exists to make LeUAE possible without binding the UAE edge unnecessarily to Leopard internals.  
+It exists to make LeanUAE possible without binding the UAE edge unnecessarily to Leopard internals.  
 It does not exist to predict every future port.
 
-LeUAE is the primary implementation.  
+LeanUAE is the primary implementation.  
 Future reuse is a consequence of a clean cut, not the primary design goal.
 
 ## Minimal C stubs

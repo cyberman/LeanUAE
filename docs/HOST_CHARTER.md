@@ -1,16 +1,16 @@
 
-# LeUAE Host Charter
+# LeanUAE Host Charter
 
 ## Purpose
 
-LeUAE is a **Leopard-native UAE host** for **Mac OS X 10.5 Leopard** on **PowerPC and Intel**.
+LeanUAE is a **Leopard-native UAE host** for **Mac OS X 10.5 Leopard** on **PowerPC and Intel**.
 
 It does **not** aim to transplant the full modern FS-UAE dependency stack onto Leopard.  
-Instead, LeUAE follows a different rule:
+Instead, LeanUAE follows a different rule:
 
 > **What Leopard already provides natively shall be used natively.**
 
-LeUAE is therefore not defined by cross-platform libraries, but by the native service boundaries of Leopard itself.
+LeanUAE is therefore not defined by cross-platform libraries, but by the native service boundaries of Leopard itself.
 
 ---
 
@@ -18,7 +18,7 @@ LeUAE is therefore not defined by cross-platform libraries, but by the native se
 
 **The OS is the contract.**
 
-LeUAE does not treat Linux-oriented or cross-platform library design as normative.  
+LeanUAE does not treat Linux-oriented or cross-platform library design as normative.  
 It treats **Leopard’s own system architecture** as normative.
 
 This leads to five design laws.
@@ -50,11 +50,11 @@ A foreign library must never become architecturally more important than a Leopar
 
 ---
 
-## What LeUAE Is Not
+## What LeanUAE Is Not
 
-LeUAE is **not** a strict “FS-UAE on Leopard” port in the conventional sense.
+LeanUAE is **not** a strict “FS-UAE on Leopard” port in the conventional sense.
 
-LeUAE is also **not** a feature-parity project for modern launcher, overlay, skin, and convenience layers.
+LeanUAE is also **not** a feature-parity project for modern launcher, overlay, skin, and convenience layers.
 
 Its priority is:
 
@@ -64,7 +64,7 @@ Its priority is:
 
 ## Host Architecture
 
-LeUAE should be split into host-side units according to Leopard-native responsibilities.
+LeanUAE should be split into host-side units according to Leopard-native responsibilities.
 
 ### `host.app`
 Responsible for:
@@ -139,7 +139,7 @@ Preferred basis:
 
 ### `host.config`
 Responsible for:
-- LeUAE-owned configuration model
+- LeanUAE-owned configuration model
 - host-side defaults
 - persistence format
 - mapping between user-visible settings and host internals
@@ -183,7 +183,7 @@ This means UAE host-side code may be further decomposed into Leopard-compatible 
 
 ## V1 Definition
 
-LeUAE V1 is reached when the following work reliably on Leopard:
+LeanUAE V1 is reached when the following work reliably on Leopard:
 
 - ROM loading
 - floppy and hardfile loading
@@ -208,7 +208,7 @@ V1 does **not** require:
 
 ## Engineering Standard
 
-LeUAE work should always prefer:
+LeanUAE work should always prefer:
 
 - native Leopard frameworks over third-party abstractions
 - explicit host responsibilities over convenience wrappers
@@ -222,5 +222,5 @@ The goal is to let Leopard define the host.
 
 ## Closing Statement
 
-**LeUAE is not a struggle to reassemble a foreign dependency forest on Leopard.  
+**LeanUAE is not a struggle to reassemble a foreign dependency forest on Leopard.  
 It is a deliberate reconstruction of the UAE host around the native contracts of Mac OS X Leopard.**

@@ -1,14 +1,14 @@
 
-# LeUAE Source Strategy
+# LeanUAE Source Strategy
 
 ## Purpose
 
-LeUAE needs a source strategy that preserves access to the best available UAE core code
+LeanUAE needs a source strategy that preserves access to the best available UAE core code
 without inheriting a foreign host environment by accident.
 
 This document defines that strategy.
 
-LeUAE does **not** take either FS-UAE or WinUAE as a complete product template.  
+LeanUAE does **not** take either FS-UAE or WinUAE as a complete product template.  
 It takes the **current shared UAE lineage** as a source of truth for emulator-side code,
 while defining its own Leopard-native host architecture.
 
@@ -21,18 +21,18 @@ with requirements such as Windows 7+, Visual Studio, and the Windows Driver Kit.
 
 ## Core Decision
 
-LeUAE uses the following rule:
+LeanUAE uses the following rule:
 
 > **Use the current shared FS-UAE / WinUAE code lineage as the source of truth for core and reusable emulator-side code.  
 > Ignore both existing host environments.  
-> Define the LeUAE host from Leopard outward.**
+> Define the LeanUAE host from Leopard outward.**
 
 This means:
 
 - **FS-UAE is not adopted as a host model**
 - **WinUAE is not adopted as a host model**
 - **the shared modern UAE lineage is adopted as code source**
-- **LeUAE defines its own Leopard-native host**
+- **LeanUAE defines its own Leopard-native host**
 
 ---
 
@@ -49,10 +49,10 @@ but a poor default mental model for a Leopard-native host. :contentReference[oai
 
 ### 3. It avoids FS-UAE dependency-led host design
 FS-UAE remains a cross-platform emulator project, and its build documentation reflects a broad dependency set.
-LeUAE does not treat that host stack as authoritative for Leopard. :contentReference[oaicite:3]{index=3}
+LeanUAE does not treat that host stack as authoritative for Leopard. :contentReference[oaicite:3]{index=3}
 
 ### 4. It preserves reuse without surrendering architecture
-This strategy allows LeUAE to reuse emulator-side work where sensible,
+This strategy allows LeanUAE to reuse emulator-side work where sensible,
 without allowing either the FS-UAE host environment or the WinUAE host environment
 to define module boundaries.
 
@@ -60,7 +60,7 @@ to define module boundaries.
 
 ## Source Categories
 
-LeUAE should classify inherited code into three categories.
+LeanUAE should classify inherited code into three categories.
 
 ## Category A — Core Source of Truth
 
@@ -105,7 +105,7 @@ Reuse what is genuinely useful without importing structural baggage.
 
 ## Category C — Host Code
 
-This category must be defined by LeUAE itself.
+This category must be defined by LeanUAE itself.
 
 Typical examples:
 - application lifecycle
@@ -129,7 +129,7 @@ Make Leopard the architectural authority.
 
 ## Repository-Level Interpretation
 
-For LeUAE, the FS-UAE repository should be treated primarily as:
+For LeanUAE, the FS-UAE repository should be treated primarily as:
 
 - a **modern shared UAE code source**
 - a **reuse quarry for emulator-side code**
@@ -164,7 +164,7 @@ If yes, prefer keeping it close to the shared lineage.
 If yes, inspect whether it depends on foreign host assumptions.
 
 ### 3. Is this host code?
-If yes, default to rewriting it for LeUAE.
+If yes, default to rewriting it for LeanUAE.
 
 ### 4. If mixed, can it be split?
 If yes, extract the reusable emulator-side part and redesign the host-facing remainder.
@@ -174,13 +174,13 @@ This rule is important because inherited files may mix:
 - bridge responsibilities
 - host responsibilities
 
-LeUAE should split such files whenever doing so improves architectural clarity.
+LeanUAE should split such files whenever doing so improves architectural clarity.
 
 ---
 
 ## Host Independence Rule
 
-LeUAE must never inherit a host abstraction merely because it already exists upstream.
+LeanUAE must never inherit a host abstraction merely because it already exists upstream.
 
 The question is not:
 
@@ -190,7 +190,7 @@ The question is:
 
 > “What is the correct Leopard-native host boundary for this responsibility?”
 
-This keeps LeUAE from becoming a disguised port of someone else’s environment.
+This keeps LeanUAE from becoming a disguised port of someone else’s environment.
 
 ---
 
@@ -203,9 +203,9 @@ Track the shared lineage closely where feasible.
 Import selectively and refactor as needed.
 
 ### Host-facing code
-Own it fully inside LeUAE.
+Own it fully inside LeanUAE.
 
-This gives LeUAE a balanced strategy:
+This gives LeanUAE a balanced strategy:
 - modern core
 - selective reuse
 - native host autonomy
@@ -214,20 +214,20 @@ This gives LeUAE a balanced strategy:
 
 ## Decision Summary
 
-LeUAE does **not** choose between FS-UAE and WinUAE as complete products.
+LeanUAE does **not** choose between FS-UAE and WinUAE as complete products.
 
 Instead, it adopts this split:
 
 - **Core lineage:** current shared FS-UAE / WinUAE code base
 - **Reuse source:** FS-UAE repository first, because it already carries the shared modern line
-- **Host lineage:** LeUAE only
+- **Host lineage:** LeanUAE only
 - **Architecture authority:** Leopard
 
 ---
 
 ## Closing Statement
 
-LeUAE should inherit emulator knowledge, not foreign host identity.
+LeanUAE should inherit emulator knowledge, not foreign host identity.
 
 Its source strategy is therefore:
 

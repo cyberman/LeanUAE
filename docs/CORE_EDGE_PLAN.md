@@ -1,11 +1,11 @@
 
-# LeUAE Core Edge Plan
+# LeanUAE Core Edge Plan
 
 ## Purpose
 
-This document defines the first planned cleanup of the UAE core edge for LeUAE.
+This document defines the first planned cleanup of the UAE core edge for LeanUAE.
 
-LeUAE does not aim to reinvent the emulator core.
+LeanUAE does not aim to reinvent the emulator core.
 It aims to **cut the host-facing edge more cleanly** so that a Leopard-native host can attach without inheriting unnecessary FS-UAE environment assumptions.
 
 The current code already exposes a usable edge through `uae.h` and `amiga_main()`,
@@ -17,7 +17,7 @@ This plan defines:
 - which startup responsibilities should stay
 - which should move
 - which should be replaced
-- how LeUAE should reshape the edge over time
+- how LeanUAE should reshape the edge over time
 
 ---
 
@@ -35,7 +35,7 @@ Two main locations define the current edge:
 `uae.h` already exposes a substantial host-facing API surface.
 `amiga_main()` already acts as the practical entry point into the emulator core.
 
-This is good news for LeUAE:
+This is good news for LeanUAE:
 the project does not need to invent a core edge from nothing.
 
 However, the current edge is still mixed with:
@@ -44,7 +44,7 @@ However, the current edge is still mixed with:
 - host-like preparation logic
 - SDL-flavored error handling and display initialization leftovers
 
-LeUAE therefore treats the current edge as a **starting point**, not as a finished design.
+LeanUAE therefore treats the current edge as a **starting point**, not as a finished design.
 
 ---
 
@@ -68,9 +68,9 @@ The current `uae.h` surface can be grouped into six meaningful edge areas and on
 - `amiga_pause(int pause)`
 - `amiga_quit()`
 
-### LeUAE view
+### LeanUAE view
 This is a valid and important edge area.
-LeUAE should preserve this responsibility group, but eventually rename or wrap it more clearly as a core control contract.
+LeanUAE should preserve this responsibility group, but eventually rename or wrap it more clearly as a core control contract.
 
 ### Planned target
 - keep the responsibility
@@ -94,8 +94,8 @@ LeUAE should preserve this responsibility group, but eventually rename or wrap i
 - `amiga_set_render_function(...)`
 - `amiga_set_display_function(...)`
 
-### LeUAE view
-This is the most important host attachment zone for LeUAE.
+### LeanUAE view
+This is the most important host attachment zone for LeanUAE.
 It already proves that the core is not entirely hardwired to one frontend model.
 
 ### Planned target
@@ -122,8 +122,8 @@ It already proves that the core is not entirely hardwired to one frontend model.
 - `amiga_set_audio_frequency_adjust(double adjust)`
 - `amiga_flush_audio()`
 
-### LeUAE view
-This is already close to what LeUAE needs.
+### LeanUAE view
+This is already close to what LeanUAE needs.
 It allows the host to remain host-native while the core remains audio-output-aware without knowing Core Audio or any Leopard-specific API.
 
 ### Planned target
@@ -150,13 +150,13 @@ It allows the host to remain host-native while the core remains audio-output-awa
 - `amiga_get_num_floppy_drives()`
 - `amiga_get_num_cdrom_drives()`
 
-### LeUAE view
+### LeanUAE view
 This is a useful host-control edge and should remain an explicit responsibility group.
 
 ### Planned target
 - preserve media/device control at the edge
 - keep host path policy outside the core
-- let LeUAE own file selection and path resolution
+- let LeanUAE own file selection and path resolution
 
 ---
 
@@ -177,7 +177,7 @@ This is a useful host-control edge and should remain an explicit responsibility 
 - `amiga_set_initialized_and_apply_options()`
 - `amiga_quickstart(...)`
 
-### LeUAE view
+### LeanUAE view
 This edge is useful, but currently too mixed.
 It combines valid emulator-side option ingress with historical startup/configuration baggage.
 
@@ -207,7 +207,7 @@ It combines valid emulator-side option ingress with historical startup/configura
 - `amiga_on_update_leds(...)`
 - `amiga_set_gui_message_function(...)`
 
-### LeUAE view
+### LeanUAE view
 This is a strong edge area because it supports loose coupling.
 It should remain callback-oriented.
 
@@ -227,9 +227,9 @@ It should remain callback-oriented.
 - serial/parallel extras
 - miscellaneous host-ish convenience features
 
-### LeUAE view
+### LeanUAE view
 These should not define the first clean edge.
-They may matter later, but they are not part of the initial LeUAE core-edge cleanup.
+They may matter later, but they are not part of the initial LeanUAE core-edge cleanup.
 
 ### Planned target
 - defer
@@ -243,7 +243,7 @@ They may matter later, but they are not part of the initial LeUAE core-edge clea
 `amiga_main()` is the current practical start edge.
 It is valuable, but mixed.
 
-LeUAE should therefore treat it as:
+LeanUAE should therefore treat it as:
 - **the correct place to begin**
 - **not the final form of the edge**
 
@@ -272,7 +272,7 @@ Examples:
 - `filesys_flush_cache();`
 - `fflush(NULL);`
 
-These may remain temporarily until LeUAE owns shutdown sequencing more explicitly.
+These may remain temporarily until LeanUAE owns shutdown sequencing more explicitly.
 
 ---
 
@@ -293,13 +293,13 @@ They belong in video capability setup or host/core video negotiation, not in the
 Using a hardcoded argv such as `"fs-uae"` is a historical compatibility measure.
 It proves that the start path still expects a legacy “program main” world.
 
-LeUAE may temporarily neutralize this, but should ultimately reduce the dependence on fake argv-based startup.
+LeanUAE may temporarily neutralize this, but should ultimately reduce the dependence on fake argv-based startup.
 
 ---
 
 ## REPLACE in `amiga_main()`
 
-The following items clearly do not belong in the long-term LeUAE edge as currently expressed.
+The following items clearly do not belong in the long-term LeanUAE edge as currently expressed.
 
 ### `preinit_shm();`
 This may remain necessary in some form, but it should become an explicit preparation stage with a clear responsibility,
@@ -307,7 +307,7 @@ not an opaque historical step buried inside the main start entry.
 
 ### `SDL_assert_release(preinit_shm_success);`
 This must be replaced.
-Even if the underlying condition remains important, SDL-flavored assertion logic has no place in the LeUAE edge.
+Even if the underlying condition remains important, SDL-flavored assertion logic has no place in the LeanUAE edge.
 
 ### `enumeratedisplays();`
 This is the clearest example of host-oriented preparation living in the wrong place.
@@ -317,7 +317,7 @@ Display enumeration belongs in the host or in a clearly named capability-prepara
 
 ## Planned Edge Restructuring
 
-LeUAE should gradually reshape the current edge into three layers.
+LeanUAE should gradually reshape the current edge into three layers.
 
 ## 1. `leuae_core_prepare(...)`
 
@@ -369,9 +369,9 @@ This function should become smaller over time, not larger.
 
 ---
 
-## Planned Edge Groups for LeUAE
+## Planned Edge Groups for LeanUAE
 
-LeUAE should treat the cleaned core edge as a set of responsibility groups.
+LeanUAE should treat the cleaned core edge as a set of responsibility groups.
 
 ## `core_control`
 For:
@@ -419,13 +419,13 @@ but they should become separate design responsibilities immediately.
 
 ---
 
-## Immediate LeUAE Rules
+## Immediate LeanUAE Rules
 
 ### Rule 1
 Do not copy the entire current `uae.h` edge blindly.
 
 ### Rule 2
-Do not widen the edge before LeUAE V1 proves it necessary.
+Do not widen the edge before LeanUAE V1 proves it necessary.
 
 ### Rule 3
 Do not let startup leftovers continue to hide host preparation logic.
@@ -434,13 +434,13 @@ Do not let startup leftovers continue to hide host preparation logic.
 Do not force Leopard details into the edge merely because Leopard is the primary host.
 
 ### Rule 5
-Use LeUAE-first cleanup as the basis for future host attachment discipline.
+Use LeanUAE-first cleanup as the basis for future host attachment discipline.
 
 ---
 
 ## Short-Term Engineering Goal
 
-The first real LeUAE core-edge task is not a broad rewrite.
+The first real LeanUAE core-edge task is not a broad rewrite.
 
 It is this:
 
@@ -448,9 +448,9 @@ It is this:
 
 That means:
 - grouping `uae.h`
-- identifying actual LeUAE V1 edge needs
+- identifying actual LeanUAE V1 edge needs
 - shrinking `amiga_main()` toward a thinner core-start function
-- moving host preparation toward explicit LeUAE-owned stages
+- moving host preparation toward explicit LeanUAE-owned stages
 
 ---
 
@@ -458,7 +458,7 @@ That means:
 
 This cleanup is valuable even beyond Leopard.
 
-LeUAE has primacy, but a cleaner UAE edge makes future native hosts easier to attach without forcing LeUAE to design for them prematurely.
+LeanUAE has primacy, but a cleaner UAE edge makes future native hosts easier to attach without forcing LeanUAE to design for them prematurely.
 
 That is the intended balance:
 
@@ -469,7 +469,7 @@ That is the intended balance:
 
 ## Closing Statement
 
-LeUAE does not need a new emulator core.
+LeanUAE does not need a new emulator core.
 It needs a cleaner host-facing edge around the existing one.
 
 The current `uae.h` and `amiga_main()` code already provide the first anchor points.

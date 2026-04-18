@@ -22,7 +22,7 @@
 		1DDD57D50DA1CFB400B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/main.xib; sourceTree = "<group>"; };
 		20286C2BFDCF999611CA2CEA /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		20286C33FDCF999611CA2CEA /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		32DBCF6D0370B57F00C91783 /* LeUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeUAE_Prefix.pch; sourceTree = "<group>"; };
+		32DBCF6D0370B57F00C91783 /* LeanUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanUAE_Prefix.pch; sourceTree = "<group>"; };
 		84C32C742F940237003A3937 /* leuae-audio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-audio.c"; path = "od-leopard/leuae-audio.c"; sourceTree = "<group>"; };
 		84C32C762F940268003A3937 /* leuae-input.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-input.c"; path = "od-leopard/leuae-input.c"; sourceTree = "<group>"; };
 		84C32C782F94028D003A3937 /* leuae-video.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "leuae-video.c"; path = "od-leopard/leuae-video.c"; sourceTree = "<group>"; };
@@ -30,7 +30,7 @@
 		84C32C7C2F9402CC003A3937 /* target.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = target.h; path = "od-leopard/target.h"; sourceTree = "<group>"; };
 		84C32C7D2F9402EB003A3937 /* sysconfig-leopard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "sysconfig-leopard.h"; path = "od-leopard/sysconfig-leopard.h"; sourceTree = "<group>"; };
 		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D0C4E970486CD37000505A6 /* LeUAE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeUAE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D0C4E970486CD37000505A6 /* LeanUAE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeanUAE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,12 +48,12 @@
 		195DF8CFFE9D517E11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D0C4E970486CD37000505A6 /* LeUAE.app */,
+				8D0C4E970486CD37000505A6 /* LeanUAE.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		20286C29FDCF999611CA2CEA /* LeUAE */ = {
+		20286C29FDCF999611CA2CEA /* LeanUAE */ = {
 			isa = PBXGroup;
 			children = (
 				20286C2AFDCF999611CA2CEA /* Sources */,
@@ -61,7 +61,7 @@
 				20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */,
 				195DF8CFFE9D517E11CA2CBB /* Products */,
 			);
-			name = LeUAE;
+			name = LeanUAE;
 			sourceTree = "<group>";
 		};
 		20286C2AFDCF999611CA2CEA /* Sources */ = {
@@ -73,7 +73,7 @@
 				84C32C782F94028D003A3937 /* leuae-video.c */,
 				84C32C762F940268003A3937 /* leuae-input.c */,
 				84C32C742F940237003A3937 /* leuae-audio.c */,
-				32DBCF6D0370B57F00C91783 /* LeUAE_Prefix.pch */,
+				32DBCF6D0370B57F00C91783 /* LeanUAE_Prefix.pch */,
 				20286C2BFDCF999611CA2CEA /* main.c */,
 			);
 			name = Sources;
@@ -100,9 +100,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D0C4E890486CD37000505A6 /* LeUAE */ = {
+		8D0C4E890486CD37000505A6 /* LeanUAE */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "LeUAE" */;
+			buildConfigurationList = C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "LeanUAE" */;
 			buildPhases = (
 				8D0C4E8C0486CD37000505A6 /* Resources */,
 				8D0C4E8F0486CD37000505A6 /* Sources */,
@@ -112,10 +112,10 @@
 			);
 			dependencies = (
 			);
-			name = LeUAE;
+			name = LeanUAE;
 			productInstallPath = "$(HOME)/Applications";
-			productName = LeUAE;
-			productReference = 8D0C4E970486CD37000505A6 /* LeUAE.app */;
+			productName = LeanUAE;
+			productReference = 8D0C4E970486CD37000505A6 /* LeanUAE.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -123,14 +123,14 @@
 /* Begin PBXProject section */
 		20286C28FDCF999611CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "LeUAE" */;
+			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "LeanUAE" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
-			mainGroup = 20286C29FDCF999611CA2CEA /* LeUAE */;
+			mainGroup = 20286C29FDCF999611CA2CEA /* LeanUAE */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D0C4E890486CD37000505A6 /* LeUAE */,
+				8D0C4E890486CD37000505A6 /* LeanUAE */,
 			);
 		};
 /* End PBXProject section */
@@ -192,10 +192,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LeUAE_Prefix.pch;
+				GCC_PREFIX_HEADER = LeanUAE_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = LeUAE;
+				PRODUCT_NAME = LeanUAE;
 			};
 			name = Debug;
 		};
@@ -206,10 +206,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LeUAE_Prefix.pch;
+				GCC_PREFIX_HEADER = LeanUAE_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = LeUAE;
+				PRODUCT_NAME = LeanUAE;
 			};
 			name = Release;
 		};
@@ -242,7 +242,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "LeUAE" */ = {
+		C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "LeanUAE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0E91AC608A95435008D54AB /* Debug */,
@@ -251,7 +251,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "LeUAE" */ = {
+		C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "LeanUAE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0E91ACA08A95435008D54AB /* Debug */,

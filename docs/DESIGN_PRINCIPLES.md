@@ -1,7 +1,7 @@
 
 ## Performance Principle
 
-For LeUAE, performance is not limited to raw emulation throughput.
+For LeanUAE, performance is not limited to raw emulation throughput.
 
 Performance also includes:
 
@@ -14,7 +14,7 @@ Performance also includes:
 - clarity of execution paths
 - overall fit to Leopard as the target system
 
-LeUAE therefore treats deep Leopard integration as a performance strategy in its own right.
+LeanUAE therefore treats deep Leopard integration as a performance strategy in its own right.
 
 The project does not measure success only by how fast the emulated machine runs.  
 It also measures success by how little host overhead is required to run it well.
@@ -31,4 +31,4 @@ This leads to several engineering consequences:
 
 Reduced binary size is a desired consequence of this approach, but not the sole objective.
 
-The real objective is a lighter, more responsive, better integrated LeUAE that fits Leopard as naturally as possible.
+The real objective is a lighter, more responsive, better integrated LeanUAE that fits Leopard as naturally as possible.

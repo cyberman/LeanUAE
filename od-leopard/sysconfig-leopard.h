@@ -2,7 +2,7 @@
 #define LEUAE_SYSCONFIG_H
 
 /*
- * LeUAE - Leopard UAE
+ * LeanUAE - Leopard UAE
  * System capabilities for macOS 10.5.8 / PowerPC
  * Nur was Leopard nativ mitbringt. Keine externen Libs.
  */

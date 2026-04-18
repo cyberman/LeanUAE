@@ -1,6 +1,6 @@
 //
 //  main.c
-//  LeUAE
+//  LeanUAE
 //
 //  Created by Administrator on 18.04.26.
 //  Copyright __MyCompanyName__ 2026. All rights reserved.

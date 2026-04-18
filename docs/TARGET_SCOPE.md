@@ -1,14 +1,14 @@
 
-# LeUAE Target Scope
+# LeanUAE Target Scope
 
 ## Purpose
 
-LeUAE is intentionally narrow in scope.
+LeanUAE is intentionally narrow in scope.
 
 This project does not aim for broad compatibility across many host systems,
 many Mac variants, or many AmigaOS generations.
 
-LeUAE is built around a fixed, truthful, and verifiable target.
+LeanUAE is built around a fixed, truthful, and verifiable target.
 
 That narrow scope is not a limitation to apologize for.
 It is a deliberate engineering choice.
@@ -17,7 +17,7 @@ It is a deliberate engineering choice.
 
 ## Target Truth
 
-LeUAE targets:
+LeanUAE targets:
 
 - **AmigaOS 3.2+ only**
 - **PowerPC only**
@@ -35,7 +35,7 @@ They define the project boundary.
 
 ## Amiga Target
 
-LeUAE is designed for **AmigaOS 3.2 and newer only**.
+LeanUAE is designed for **AmigaOS 3.2 and newer only**.
 
 Earlier AmigaOS generations are out of scope.
 
@@ -46,13 +46,13 @@ This means:
 - no effort spent preserving older operating system edge cases
 - no requirement to shape the project around historical lowest-common-denominator behavior
 
-LeUAE is allowed to treat **AmigaOS 3.2+** as the meaningful Amiga-side baseline.
+LeanUAE is allowed to treat **AmigaOS 3.2+** as the meaningful Amiga-side baseline.
 
 ---
 
 ## Host Target
 
-LeUAE is designed for **PowerPC on Mac OS X 10.5.8 Leopard only**.
+LeanUAE is designed for **PowerPC on Mac OS X 10.5.8 Leopard only**.
 
 Other host targets are out of scope unless explicitly revisited later.
 
@@ -69,7 +69,7 @@ The host truth is intentionally fixed to the last Leopard release on PowerPC.
 
 ## Verification Rule
 
-LeUAE does not claim support for targets that cannot be verified.
+LeanUAE does not claim support for targets that cannot be verified.
 
 A target is considered supported only if it can be validated through:
 
@@ -78,13 +78,13 @@ A target is considered supported only if it can be validated through:
 
 This rule exists to prevent false compatibility claims.
 
-LeUAE prefers a smaller truthful support statement over a larger unverified one.
+LeanUAE prefers a smaller truthful support statement over a larger unverified one.
 
 ---
 
 ## Engineering Consequences
 
-Because the target scope is fixed, LeUAE may:
+Because the target scope is fixed, LeanUAE may:
 
 - cut code to the chosen host and guest truth
 - remove compatibility branches that only exist for unsupported targets
@@ -94,14 +94,14 @@ Because the target scope is fixed, LeUAE may:
 
 This is a core project strength.
 
-LeUAE is not trying to become universally portable.
+LeanUAE is not trying to become universally portable.
 It is trying to become correct within a tightly defined target.
 
 ---
 
 ## Non-Goals
 
-The following are explicitly not goals of LeUAE:
+The following are explicitly not goals of LeanUAE:
 
 - support for AmigaOS versions earlier than 3.2
 - support for Intel Leopard without later verification
@@ -109,7 +109,7 @@ The following are explicitly not goals of LeUAE:
 - support for generalized cross-platform host reuse at the expense of target clarity
 - compatibility theater
 
-LeUAE does not widen scope by default.
+LeanUAE does not widen scope by default.
 
 ---
 
@@ -133,7 +133,7 @@ Until that happens, they remain out of scope.
 
 ## Design Principle
 
-LeUAE prefers:
+LeanUAE prefers:
 
 - truthful support over theoretical support
 - verified scope over guessed scope
@@ -146,13 +146,13 @@ This principle applies to architecture, implementation, documentation, and relea
 
 ## Closing Statement
 
-LeUAE is intentionally strict about what it supports.
+LeanUAE is intentionally strict about what it supports.
 
 It targets **AmigaOS 3.2+ only** and **PowerPC on Mac OS X 10.5.8 only**.
 
 These limits are not temporary excuses.
 They are part of the project’s engineering discipline.
 
-LeUAE does not optimize for maximum reach.
+LeanUAE does not optimize for maximum reach.
 
 It optimizes for a small, honest, verifiable target that can be built and understood without unnecessary additional fronts.

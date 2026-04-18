@@ -1,9 +1,9 @@
 
-# LeUAE Roadmap
+# LeanUAE Roadmap
 
 ## Project Direction
 
-LeUAE is a **Leopard-native UAE host** built around the native contracts of **Mac OS X 10.5 Leopard**.
+LeanUAE is a **Leopard-native UAE host** built around the native contracts of **Mac OS X 10.5 Leopard**.
 
 This roadmap does not measure success by feature parity with modern FS-UAE environments.  
 It measures success by a different standard:
@@ -228,7 +228,7 @@ Make the first usable version stable.
 
 ## V1 Definition
 
-LeUAE V1 is complete when all of the following are true:
+LeanUAE V1 is complete when all of the following are true:
 
 - ROM loading works
 - floppy loading works
@@ -309,7 +309,7 @@ Further split inherited code into Leopard-compatible responsibility units where 
 
 ## Closing Statement
 
-LeUAE progresses in the right direction when each phase makes the host:
+LeanUAE progresses in the right direction when each phase makes the host:
 
 - more Leopard-native
 - more explicit

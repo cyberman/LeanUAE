@@ -2,7 +2,7 @@
 #define LEUAE_TARGET_H
 
 /*
- * LeUAE - Leopard UAE
+ * LeanUAE - Leopard UAE
  * Platform target definitions for macOS 10.5.8 / PowerPC
  */
 

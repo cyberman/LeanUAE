@@ -1,9 +1,9 @@
 
-# LeUAE Architecture
+# LeanUAE Architecture
 
 ## Overview
 
-LeUAE is structured as a **native Leopard host layer** around the UAE emulator core.
+LeanUAE is structured as a **native Leopard host layer** around the UAE emulator core.
 
 The architecture is intentionally split into two major domains:
 
@@ -75,7 +75,7 @@ Contains narrow translation code between core expectations and host services.
 
 ### `ui/`
 
-Contains only the minimal user-facing logic needed by LeUAE itself.
+Contains only the minimal user-facing logic needed by LeanUAE itself.
 
 This is not a launcher playground.  
 It exists to support the host, not to dominate it.
@@ -234,7 +234,7 @@ int host_fs_file_exists(const char *path);
 
 ### Responsibility
 
-Owns LeUAE configuration as a host concern.
+Owns LeanUAE configuration as a host concern.
 
 ### Example interface
 
@@ -346,7 +346,7 @@ while (!quit_requested) {
 
 ## V1 Scope
 
-LeUAE V1 needs:
+LeanUAE V1 needs:
 
 - application startup
     
@@ -388,7 +388,7 @@ V1 does not need:
 
 ## Final Statement
 
-LeUAE should be built as a set of clear host responsibilities wrapped around the UAE core.
+LeanUAE should be built as a set of clear host responsibilities wrapped around the UAE core.
 
 Its architecture must reflect Leopard’s native system structure, not the accidental structure of foreign dependency stacks.
 
@@ -404,11 +404,11 @@ The host is a Leopard application environment for UAE.
 ```md id="7rq0pm"
 # ROADMAP.md
 
-# LeUAE Roadmap
+# LeanUAE Roadmap
 
 ## Project Direction
 
-LeUAE is a **Leopard-native UAE host** built around the native contracts of **Mac OS X 10.5 Leopard**.
+LeanUAE is a **Leopard-native UAE host** built around the native contracts of **Mac OS X 10.5 Leopard**.
 
 This roadmap does not measure success by feature parity with modern FS-UAE environments.  
 It measures success by a different standard:
@@ -633,7 +633,7 @@ Make the first usable version stable.
 
 ## V1 Definition
 
-LeUAE V1 is complete when all of the following are true:
+LeanUAE V1 is complete when all of the following are true:
 
 - ROM loading works
 - floppy loading works
@@ -714,7 +714,7 @@ Further split inherited code into Leopard-compatible responsibility units where 
 
 ## Closing Statement
 
-LeUAE progresses in the right direction when each phase makes the host:
+LeanUAE progresses in the right direction when each phase makes the host:
 
 - more Leopard-native
 - more explicit

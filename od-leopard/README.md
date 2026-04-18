@@ -1,8 +1,8 @@
-# od-leopard — LeUAE Leopard Platform Layer
+# od-leopard — LeanUAE Leopard Platform Layer
 
 ## Philosophie
 
-LeUAE ersetzt den gesamten SDL/Deps-Stack von FS-UAE durch native
+LeanUAE ersetzt den gesamten SDL/Deps-Stack von FS-UAE durch native
 macOS Leopard (10.5.8 / PowerPC) APIs. Das Betriebssystem ist die
 Bibliothek. Nichts anderes.
 
