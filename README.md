@@ -389,9 +389,12 @@ then LeUAE is exactly that kind of project.
 
 ## License
 
-TBD.
+## License
 
-LeUAE will respect the licensing requirements of all inherited upstream code and document source provenance clearly.
+LeUAE is released under the **GNU General Public License v2.0 (GPL-2.0)**,
+following the licensing conditions of the inherited FS-UAE / UAE code base.
+
+Source provenance and inherited code origins should be documented clearly as the project evolves.
 
 ---
 
