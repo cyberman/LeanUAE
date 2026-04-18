@@ -1,0 +1,55 @@
+#!/bin/sh
+# --------------------------------------------------------------------------------------------------
+set -e
+# --------------------------------------------------------------------------------------------------
+
+"$PACKAGE_DEPENDENCY/gettext"
+"$PACKAGE_DEPENDENCY/libffi"
+"$PACKAGE_DEPENDENCY/libiconv"
+"$PACKAGE_DEPENDENCY/zlib"
+
+PACKAGE=glib-2.84.3
+PACKAGE_REVISION=1
+PACKAGE_URL=https://download.gnome.org/sources/glib/2.84/$PACKAGE.tar.xz
+PACKAGE_CHECKSUM=aa4f87c3225bf57ca85f320888f7484901a17934ca37023c3bd8435a72db863e
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_PRE"
+# --------------------------------------------------------------------------------------------------
+
+tar xf "$PACKAGE_SOURCES/$PACKAGE.tar.xz" || true
+cd $PACKAGE
+
+#python3 ../../replace.py \
+#gio/tests/meson.build \
+#"if not meson.is_cross_build() or meson.has_exe_wrapper()" \
+#"if false"
+
+#-Dinternal_pcre=true \
+
+# replace meson.build "subdir('po')" ""
+
+meson setup \
+    --prefix "$PACKAGE_PREFIX" \
+    --libdir lib \
+    --force-fallback-for libpcre2-8 \
+    -Dlibelf=disabled \
+    _build 
+meson compile -C _build
+meson install -C _build
+
+#ninja -C _build
+#ninja -C _build install
+
+# if [ "$SYSTEM_OS" = "macOS" ]; then
+# DYLIB=libglib-2.0.0.dylib
+# install_name_tool -id @rpath/$DYLIB $PREFIX/lib/$DYLIB
+# fi
+
+if [ "$SYSTEM_OS" = "Linux" ]; then
+patchelf --set-rpath "$PACKAGE_PREFIX/lib" "$PACKAGE_PREFIX/lib/libglib-2.0.so"
+fi
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_POST"
+# --------------------------------------------------------------------------------------------------

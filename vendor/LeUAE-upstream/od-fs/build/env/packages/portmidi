@@ -1,0 +1,45 @@
+#!/bin/sh
+# --------------------------------------------------------------------------------------------------
+set -e
+# --------------------------------------------------------------------------------------------------
+
+# FIXME: Update to v2.0.4 or later
+# https://github.com/PortMidi/portmidi/releases/
+
+PACKAGE_NAME=portmidi
+PACKAGE_VERSION=2.0.6
+PACKAGE_REVISION=0
+PACKAGE_URL=https://github.com/PortMidi/portmidi/archive/refs/tags/v$PACKAGE_VERSION.tar.gz
+PACKAGE_CHECKSUM=81d22b34051621cd56c8d5ef12908ef2a59764c9cdfba6dae47aabddb71ac914
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_PRE"
+
+# -----------------------------------------------------------------------------
+
+tar zxfv "$PACKAGE_SOURCES/v$PACKAGE_VERSION.tar.gz"
+cd portmidi-2.0.6
+
+
+if [ "`uname -o`" = "Msys" ]; then
+export CFLAGS="-Wno-incompatible-pointer-types"
+cmake \
+-G "MSYS Makefiles" \
+-DCMAKE_INSTALL_PREFIX=$PREFIX \
+.
+else
+cmake \
+-DCMAKE_INSTALL_PREFIX=$PREFIX \
+.
+fi
+make
+make install
+
+if [ "$SYSTEM_OS" = "macOS" ]; then
+DYLIB=libportmidi.2.dylib
+install_name_tool -id $PREFIX/lib/$DYLIB $PREFIX/lib/$DYLIB
+fi
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_POST"
+# --------------------------------------------------------------------------------------------------

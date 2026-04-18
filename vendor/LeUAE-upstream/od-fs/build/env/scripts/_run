@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -e
+
+export BUILD_ENV_PREFIX="$(cd "$(dirname "$0")" && pwd)"
+
+export CMAKE_PREFIX_PATH=$BUILD_ENV_PREFIX
+
+export C_INCLUDE_PATH=$BUILD_ENV_PREFIX/include
+export CPLUS_INCLUDE_PATH=$BUILD_ENV_PREFIX/include
+export LIBRARY_PATH=$BUILD_ENV_PREFIX/lib:$BUILD_ENV_PREFIX/lib64
+export PKG_CONFIG_PATH=$BUILD_ENV_PREFIX/lib/pkgconfig:$BUILD_ENV_PREFIX/lib64/pkgconfig
+
+export PATH=$BUILD_ENV_PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$BUILD_ENV_PREFIX/lib:$BUILD_ENV_PREFIX/lib64
+
+if [ "$MACOSX_DEPLOYMENT_TARGET" = "" ]; then
+export MACOSX_DEPLOYMENT_TARGET=10.13
+fi
+
+COMMAND=$1
+if [ -z "$COMMAND" ]; then
+    exec bash --rcfile "$BUILD_ENV_PREFIX/.bashrc"
+else
+    shift
+    "$COMMAND" "$@"
+fi

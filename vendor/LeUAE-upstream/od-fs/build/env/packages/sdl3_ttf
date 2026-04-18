@@ -1,0 +1,35 @@
+#!/bin/sh
+# --------------------------------------------------------------------------------------------------
+set -e
+# --------------------------------------------------------------------------------------------------
+
+"$PACKAGE_DEPENDENCY/freetype"
+"$PACKAGE_DEPENDENCY/harfbuzz"
+"$PACKAGE_DEPENDENCY/sdl3"
+
+# FIXME: plutosvg for rendering icons/smileys (etc)?
+
+PACKAGE=SDL3_ttf-3.2.2
+PACKAGE_REVISION=0
+PACKAGE_URL=https://www.libsdl.org/projects/SDL_ttf/release/$PACKAGE.tar.gz
+PACKAGE_CHECKSUM=63547d58d0185c833213885b635a2c0548201cc8f301e6587c0be1a67e1e045d
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_PRE"
+# --------------------------------------------------------------------------------------------------
+
+tar xf "$PACKAGE_SOURCES/$PACKAGE.tar.gz"
+cd $PACKAGE
+
+cmake -S . -B _build
+cmake --build _build
+cmake --install _build --prefix "$PACKAGE_PREFIX"
+
+if [ "$SYSTEM_OS" = "macOS" ]; then
+DYLIB=libSDL3_ttf.0.dylib
+install_name_tool -id "$PACKAGE_PREFIX/lib/$DYLIB" "$PACKAGE_PREFIX/lib/$DYLIB"
+fi
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_POST"
+# --------------------------------------------------------------------------------------------------

@@ -1,0 +1,34 @@
+#include "resource.h"
+
+1 VERSIONINFO
+FILEVERSION     @PACKAGE_MAJOR@,@PACKAGE_MINOR@,@PACKAGE_REVISION@,0
+PRODUCTVERSION     @PACKAGE_MAJOR@,@PACKAGE_MINOR@,@PACKAGE_REVISION@,0
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    BEGIN
+      VALUE "CompanyName", "Frode Solheim"
+      VALUE "FileDescription", "FS-UAE"
+      VALUE "FileVersion", "@PACKAGE_VERSION@"
+      VALUE "InternalName", "fs-uae"
+      VALUE "LegalCopyright", "Copyright 2011-2015 Frode Solheim and others"
+      VALUE "OriginalFilename", "FS-UAE.exe"
+      VALUE "ProductName", "FS-UAE"
+      VALUE "ProductVersion", "@PACKAGE_VERSION@"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1252
+  END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APPICON             ICON                    "fs-uae.ico"

@@ -1,0 +1,30 @@
+#!/bin/sh
+# --------------------------------------------------------------------------------------------------
+set -e
+# --------------------------------------------------------------------------------------------------
+
+# Dependency: pulseaudio?
+# Dependency: wayland?
+
+PACKAGE=flac-1.5.0
+PACKAGE_REVISION=2
+PACKAGE_URL=https://ftp.osuosl.org/pub/xiph/releases/flac/$PACKAGE.tar.xz
+PACKAGE_CHECKSUM=f2c1c76592a82ffff8413ba3c4a1299b6c7ab06c734dee03fd88630485c2b920
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_PRE"
+# --------------------------------------------------------------------------------------------------
+
+tar xf "$PACKAGE_SOURCES/$PACKAGE.tar.xz"
+cd $PACKAGE
+
+# FIXME Compiling with neon does not work on raspberry pi 32-bit arm?
+python3 "$BUILD_ENV_DIR/scripts/replace.py" configure arm_neon.h arm_neon_xxx.h
+
+./configure --prefix=$PREFIX --without-ogg
+make
+make install
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_POST"
+# --------------------------------------------------------------------------------------------------

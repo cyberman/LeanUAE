@@ -1,0 +1,34 @@
+#!/bin/sh
+# --------------------------------------------------------------------------------------------------
+set -e
+# --------------------------------------------------------------------------------------------------
+
+# FIXME: libiconv (except on macOS) ?? Done
+"$PACKAGE_DEPENDENCY/libiconv"
+
+PACKAGE=gettext-0.26
+PACKAGE_REVISION=0
+PACKAGE_URL=https://ftp.gnu.org/pub/gnu/gettext/$PACKAGE.tar.gz
+PACKAGE_CHECKSUM=39acf4b0371e9b110b60005562aace5b3631fed9b1bb9ecccfc7f56e58bb1d7f
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_PRE"
+# --------------------------------------------------------------------------------------------------
+
+tar xf "$PACKAGE_SOURCES/$PACKAGE.tar.gz"
+cd $PACKAGE
+cd gettext-runtime
+./configure --prefix=$PREFIX \
+    --disable-csharp \
+    --disable-java
+make
+make install
+
+# if [ "$SYSTEM_OS" = "macOS" ]; then
+# DYLIB=libintl.8.dylib
+# install_name_tool -id @rpath/$DYLIB $PREFIX/lib/$DYLIB
+# fi
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_POST"
+# --------------------------------------------------------------------------------------------------

@@ -1,0 +1,34 @@
+#!/bin/sh
+# --------------------------------------------------------------------------------------------------
+set -e
+# --------------------------------------------------------------------------------------------------
+
+"$PACKAGE_DEPENDENCY/libffi"
+"$PACKAGE_DEPENDENCY/libuuid"
+"$PACKAGE_DEPENDENCY/openssl"
+"$PACKAGE_DEPENDENCY/sqlite"
+"$PACKAGE_DEPENDENCY/zlib"
+
+PACKAGE_NAME=python
+PACKAGE_VERSION=3.13.6
+PACKAGE_REVISION=0
+PACKAGE_URL=https://www.python.org/ftp/python/$PACKAGE_VERSION/Python-$PACKAGE_VERSION.tar.xz
+PACKAGE_CHECKSUM=17ba5508819d8736a14fbfc47d36e184946a877851b2e9c4b6c43acb44a3b104
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_PRE"
+# --------------------------------------------------------------------------------------------------
+
+tar xf "$PACKAGE_SOURCES/Python-$PACKAGE_VERSION.tar.xz"
+cd Python-$PACKAGE_VERSION
+./configure \
+    --prefix="$PACKAGE_PREFIX" \
+    --enable-shared \
+    --without-static-libpython \
+    --disable-test-modules
+make
+make install
+
+# --------------------------------------------------------------------------------------------------
+. "$PACKAGE_POST"
+# --------------------------------------------------------------------------------------------------
