@@ -1,12 +1,17 @@
-# LeUAE
+# LeanUAE
 
-**LeUAE** is a **Leopard-native UAE host** for **PowerPC Macs running Mac OS X 10.5.8**.
+**LeanUAE** is a surgically reduced **UAE architecture** with a **portable core edge** and **native host adapters**.
 
-It does **not** aim to become a broad compatibility project.
-It does **not** aim to transplant the full modern FS-UAE environment onto Leopard.
-It does **not** treat foreign dependency stacks as architectural truth.
+It does **not** aim to transplant the full FS-UAE environment onto old systems.
+It does **not** treat SDL, FreeType, Python, GLib, or other foreign dependency stacks as architectural truth.
+It does **not** begin from the frontend.
 
-LeUAE exists to host the UAE core through a **tight, native, Leopard-first design** with a **cleaner host-facing edge** and a **strictly limited target scope**.
+LeanUAE begins from a different premise:
+
+> **Extract the real UAE core, define clean host-facing contracts, and let each host use its native capabilities directly.**
+
+Leopard was the trigger.  
+**LeanUAE is the project.**
 
 ---
 
@@ -14,160 +19,135 @@ LeUAE exists to host the UAE core through a **tight, native, Leopard-first desig
 
 **Early architecture and source-triage phase.**
 
-The project direction, scope, and host strategy are being fixed before implementation expands.
+The current work focuses on:
+
+- identifying the real UAE core edge
+- separating core, host, and bridge responsibilities
+- reducing inherited environment assumptions
+- defining the first host attachment contracts
+- fixing a narrow, truthful first target before code growth
+
 This is intentional.
 
-LeUAE prefers a correct narrow foundation over premature code growth.
+LeanUAE prefers a correct narrow foundation over premature implementation sprawl.
 
 ---
 
-## Project Goals
+## What LeanUAE Is
 
-LeUAE is built around these goals:
+LeanUAE is:
 
-- create a **native Leopard host** for the UAE core
-- reduce dependency weight and host-side indirection
-- keep the project tightly scoped and verifiable
-- treat **Mac OS X 10.5.8 on PowerPC** as fixed host truth
-- treat **AmigaOS 3.2+** as fixed guest truth
-- cut cleaner attachment points at the edge of the UAE core
-- avoid inheriting foreign host identity from FS-UAE or WinUAE
+- a **lean UAE refactoring effort**
+- a **host-edge cleanup project**
+- a **native-host-first emulator architecture**
+- a **surgical extraction**, not a clean-room rewrite
+- a way to let UAE attach more naturally to strong host operating systems
 
-LeUAE is not only about emulation speed.
-It is also about:
+The core idea is simple:
 
-- host efficiency
-- responsiveness
-- startup cost
-- memory footprint
-- dependency burden
-- binary size
-- overall fit to Leopard
-
----
-
-## Non-Goals
-
-LeUAE is **not** intended to be:
-
-- a full modern FS-UAE replacement
-- a feature-parity clone of the FS-UAE frontend stack
-- a broad portability framework
-- an Intel Leopard project
-- a compatibility project for AmigaOS versions earlier than 3.2
-- a launcher-first or convenience-first emulator environment
-
-LeUAE is intentionally narrow.
-
----
-
-## Target Scope
-
-LeUAE currently targets:
-
-- **Host:** PowerPC on **Mac OS X 10.5.8 Leopard**
-- **Guest focus:** **AmigaOS 3.2+**
-
-Anything outside this scope is out of project truth unless explicitly revisited and verified later.
-
-This means:
-
-- no Intel support claim
-- no earlier AmigaOS support claim
-- no broad macOS support claim
-- no compatibility promises without verification
-
-For LeUAE, **truthful support** matters more than broad support claims.
-
----
-
-## Core Strategy
-
-LeUAE does not choose between FS-UAE and WinUAE as complete products.
-
-Instead, it uses this split:
-
-- **Core lineage:** current shared FS-UAE / WinUAE code line
-- **Reuse preference:** FS-UAE repository first
-- **Host architecture authority:** Leopard
-- **Primary implementation:** LeUAE only
-
-This means:
-
-- emulator-side code should stay close to the modern shared UAE line where practical
-- reusable support code may be adopted selectively
-- the host environment must be defined by Leopard, not inherited from FS-UAE or WinUAE
+- the **emulator core** should stay as host-agnostic as practical
+- the **host** should attach through explicit, deterministic contracts
+- each **operating system** should provide its own native backend
+- foreign abstraction layers should not outrank host-native capabilities
 
 In short:
 
-> **LeUAE should inherit emulator knowledge, not foreign host identity.**
-
----
-
-## Design Principles
-
-LeUAE follows these principles:
-
-### The OS is the contract
-Leopard defines the host architecture.
-Not SDL.
-Not Windows.
-Not generic cross-platform convenience layers.
-
-### Native first
-If Leopard already provides the needed host capability, that native capability has priority over third-party abstraction.
-
-### Primary target first
-LeUAE has primacy.
-Future reuse is welcome, but only as a consequence of a clean cut.
-
-### Clean attachment points always
-The UAE edge should be shaped so that the host can attach cleanly without polluting the core.
-
-### Truth over breadth
-LeUAE prefers:
-- verified scope over guessed scope
-- fewer code paths over more untested ones
-- explicit structure over convenience-heavy abstraction
+> **LeanUAE does not port an environment. It extracts a core and lets hosts attach natively.**
 
 ---
 
 ## Why This Project Exists
 
-Modern UAE-derived projects often carry a large amount of frontend, portability, and dependency structure around the emulator core.
+Modern UAE-derived projects often carry a large amount of environment around the emulator core:
 
-That is useful for broad cross-platform products.
-It is not automatically the right fit for a tightly scoped Leopard/PPC project.
+- frontend frameworks
+- portability layers
+- windowing abstractions
+- audio abstractions
+- font stacks
+- launcher logic
+- GUI layers
+- convenience dependencies
 
-LeUAE exists because a different question is being asked:
+That may be justified for broad cross-platform products.
 
-> **What would a truthful, Leopard-native UAE host look like if Leopard itself defined the boundaries?**
+It is not automatically the right fit when the actual goal is:
 
-That question leads to a different architecture:
+- a small truthful target
+- a native host
+- less dependency weight
+- less host-side indirection
+- cleaner ownership
+- better system fit
 
-- smaller host surface
-- fewer foreign assumptions
-- cleaner host/core separation
-- tighter system fit
-- less dependency-led complexity
+LeanUAE exists because the real value lies in **freeing the UAE core from environment overgrowth** and defining a cleaner edge around it.
 
 ---
 
-## Planned Architecture
+## Core Idea
 
-LeUAE is being structured around these domains:
+LeanUAE treats the current UAE code base as something that must be **freed**, not rewritten.
+
+This is not a clean-room project.
+It is not a fantasy rewrite.
+It is not an attempt to outgrow reality.
+
+It is a **surgical project**.
+
+The working assumption is:
+
+- the real emulator core is still there
+- it is surrounded by historical growth, mixed startup logic, portability leftovers, and dependency-driven host design
+- those layers can be identified
+- those edges can be cut more cleanly
+- each successful cut can become a visible success step
+
+That matters technically and personally.
+
+LeanUAE is designed so progress can happen in **small, concrete, motivating increments**.
+
+---
+
+## Design Principles
+
+### The OS is the contract
+A host operating system defines the host architecture.
+Not SDL.
+Not generic portability convenience.
+Not another platform’s assumptions.
+
+### Native first
+If the host OS already provides the needed capability, the host should use it natively.
+
+### Primary target first
+LeanUAE always starts from one real target, not five hypothetical ones.
+
+### Clean attachment points always
+The edge around the core should be cut so a host can attach cleanly without polluting emulator logic.
+
+### Truth over breadth
+LeanUAE prefers:
+- verified scope over guessed compatibility
+- fewer code paths over more untested ones
+- explicit contracts over convenience-heavy abstraction
+- smaller, clearer host code over general-purpose environment shells
+
+### Abstraction follows real work
+Interfaces should be created from actual host integration needs, not from imagined future portability.
+
+---
+
+## Architecture Direction
+
+LeanUAE is converging on a structure like this:
 
 ```text
 src/
   core/
+  hostif/
   host/
-    app/
-    video/
-    audio/
-    input/
-    time/
-    fs/
-    config/
+    leopard/
+    haiku/        # possible later
   bridge/
   ui/
 ````
@@ -176,94 +156,261 @@ src/
 
 Emulator-side logic and shared UAE lineage code.
 
+### `hostif/`
+
+The clean host-facing contract at the edge of the core.
+
 ### `host/`
 
-Leopard-native host services only.
+Concrete native host implementations.
 
 ### `bridge/`
 
-Translation seam between host-facing contracts and emulator-side expectations.
+Translation seam between host contracts and emulator-side expectations.
 
 ### `ui/`
 
-Minimal LeUAE user-facing logic only.
+Minimal host-facing user logic only where actually needed.
 
-The project is intentionally split so the host can be native without forcing Leopard details into the core.
+The long-term goal is not “portable GUI sameness”.  
+The long-term goal is:
+
+> **one cleaner core edge, multiple native host implementations.**
 
 ---
 
-## Current Edge Focus
+## First Host Truth
 
-The first major technical focus is the existing UAE host-facing edge around:
+LeanUAE is platform-neutral as a project idea, but it is **not** platform-neutral in implementation order.
+
+The first host truth is intentionally narrow:
+
+- **Host:** PowerPC on **Mac OS X 10.5.8**
+    
+- **Guest focus:** **AmigaOS 3.2+**
+    
+
+This first target is treated as **code truth**.
+
+That means:
+
+- no Intel support claim
+    
+- no earlier AmigaOS support claim
+    
+- no broad macOS compatibility claim
+    
+- no scope widening by implication
+    
+- no support promises without verification
+    
+
+The first host is narrow on purpose.
+
+Leopard is not the identity of the project.  
+It is the **first concrete proving ground**.
+
+---
+
+## Why Leopard First
+
+Mac OS X 10.5.8 on PowerPC is a strong first host for this idea because it provides substantial native capabilities already:
+
+- native OpenGL
+    
+- native audio stack
+    
+- native windowing and application frameworks
+    
+- native input and device services
+    
+- a strong Unix foundation
+    
+
+The point is not nostalgia.
+
+The point is that Leopard is a host that already has much of what UAE needs, which makes it a good first place to prove that foreign dependency layers can be reduced or removed.
+
+Leopard is therefore the **birthplace** of LeanUAE, not its conceptual limit.
+
+---
+
+## Future Host Possibilities
+
+LeanUAE is **not** currently a multi-host implementation project.
+
+However, the architecture is intentionally being cut so that future native hosts could exist without structural regret.
+
+A likely future example is **Haiku**, because it also offers strong native kits and a system-defined application model.
+
+That does **not** mean LeanUAE is currently targeting Haiku.  
+It means LeanUAE is trying not to damage the future by cutting the core edge badly today.
+
+The rule is:
+
+> **Primary target first. Clean attachment points always.**
+
+---
+
+## Source Strategy
+
+LeanUAE does not choose between FS-UAE and WinUAE as complete products.
+
+Instead, it follows this split:
+
+- **Core lineage:** current shared UAE / FS-UAE / WinUAE line
+    
+- **Reuse preference:** FS-UAE repository first
+    
+- **Host architecture authority:** the actual target OS
+    
+- **Project identity:** LeanUAE only
+    
+
+This means:
+
+- emulator-side code should stay close to the modern UAE lineage where practical
+    
+- reusable support code may be adopted selectively
+    
+- host architecture must not be inherited blindly from FS-UAE or WinUAE
+    
+
+In short:
+
+> **LeanUAE should inherit emulator knowledge, not foreign host identity.**
+
+---
+
+## Current Technical Focus
+
+The first real technical focus is the existing UAE edge around:
 
 - `uae.h`
     
 - `amiga_main()`
     
 
-The project has already identified that:
+Current findings suggest:
 
-- the current edge **exists**
+- the edge already exists
     
-- but it is **not yet clean enough**
+- but it is mixed
     
-- and it still contains mixed startup and host-preparation assumptions
+- startup logic still contains host-ish preparation and historical assumptions
+    
+- useful contracts are present, especially for control, video, audio, media, and notifications
+    
+- the first real work is to make that edge more understandable and thinner
     
 
-LeUAE therefore focuses on:
+The current approach is therefore:
 
-- understanding the current edge
+1. understand the existing edge
     
-- grouping existing edge responsibilities
+2. group responsibilities
     
-- thinning the startup path
+3. separate keep / move / replace zones
     
-- moving host preparation out of mixed historical entry code
+4. move host preparation outward
     
-- preserving useful emulator-side contracts without inheriting the full FS-UAE environment
+5. keep the actual core start thinner over time
     
+
+That is the beginning of LeanUAE.
 
 ---
 
-## Current Source Triage Direction
+## Performance Philosophy
 
-Initial triage of the FS-UAE tree shows a useful split:
+For LeanUAE, performance is not limited to raw emulation throughput.
 
-### HOST / environment-heavy
+Performance also includes:
 
-- `od-fs/fsemu/`
+- host-side efficiency
     
-- large parts of `od-fs/fsuae/`
+- responsiveness
     
-
-### REUSE / host-edge relevant
-
-- `od-fs/include/uae/uae.h`
+- startup cost
     
-- `od-fs/libamiga.cpp`
+- dependency weight
     
-- `od-fs/libuae/` for reference and structure study
+- memory footprint
     
-
-### CORE / low-level
-
-- emulator-side code under the shared UAE lineage
+- binary size
     
-- `od-fs/machdep/ppc/`
+- clarity of execution paths
     
-- `ppc/` as PPC-related emulator-side logic, not host code
+- overall fit to the host OS
     
 
-This confirms the current LeUAE direction:
+A faster-feeling host with lower overhead is a legitimate performance gain, even if raw emulation speed remains unchanged.
 
-> **Do not port the FS-UAE environment.  
-> Cleanly re-host the UAE edge.**
+LeanUAE therefore treats deep native integration as a performance strategy in its own right.
+
+Reduced binary size is a desired consequence of that approach, but not the sole objective.
+
+The real objective is a lighter, more responsive, better integrated UAE host.
+
+---
+
+## Non-Goals
+
+LeanUAE is **not** currently trying to be:
+
+- a full FS-UAE replacement
+    
+- a feature-parity clone of modern FS-UAE frontends
+    
+- a universal emulator framework
+    
+- a broad compatibility project
+    
+- a launcher-first project
+    
+- a clean-room rewrite
+    
+- a multi-host implementation from day one
+    
+- a support claim for platforms that cannot be verified
+    
+
+LeanUAE is intentionally strict.
+
+---
+
+## What Success Looks Like
+
+A meaningful first LeanUAE version does **not** mean “everything modern FS-UAE can do”.
+
+It means something much narrower and more honest:
+
+- the core starts cleanly through a thinner edge
+    
+- the first native host attaches without dragging in a foreign environment
+    
+- ROM/media loading works
+    
+- frame output works
+    
+- audio output works
+    
+- keyboard and mouse work
+    
+- startup and shutdown are orderly
+    
+- the host remains understandable
+    
+- the architecture remains clean enough that another native host is still thinkable later
+    
+
+That is already a significant success.
 
 ---
 
 ## Documentation
 
-The repository is expected to carry the following design documents:
+The repository is expected to carry architecture documents such as:
 
 - `HOST_CHARTER.md`
     
@@ -280,121 +427,27 @@ The repository is expected to carry the following design documents:
 - `TARGET_SCOPE.md`
     
 
-These documents are not decoration.  
-They are part of the engineering discipline of the project.
+These documents are part of the engineering discipline of the project.
 
-LeUAE is being shaped deliberately before it is allowed to grow.
-
----
-
-## Development Philosophy
-
-LeUAE favors:
-
-- small explicit responsibilities
-    
-- clear ownership
-    
-- narrow interfaces
-    
-- host truth over source compatibility theater
-    
-- verifiable targets over assumed support
-    
-- cleanup of historical edge mixing
-    
-- real host work over speculative abstraction
-    
-
-This is a Leopard-first project.  
-It is allowed to be strict.
-
----
-
-## What Success Looks Like
-
-LeUAE V1 does **not** mean “everything FS-UAE can do”.
-
-LeUAE V1 means:
-
-- ROM loading works
-    
-- floppy loading works
-    
-- hardfile loading works
-    
-- window creation works
-    
-- frame output works
-    
-- audio output works
-    
-- keyboard input works
-    
-- mouse input works
-    
-- startup is orderly
-    
-- shutdown is orderly
-    
-- configuration persists
-    
-- the host remains native and understandable
-    
-
-That is enough for a meaningful first version.
-
----
-
-## Scope Warning
-
-If you are looking for:
-
-- broad platform support
-    
-- modern cross-platform convenience stacks
-    
-- frontend feature parity
-    
-- unverified Intel support
-    
-- generalized portability promises
-    
-
-this project is probably not the right fit.
-
-If you are interested in:
-
-- native Leopard design
-    
-- PowerPC truth
-    
-- tight host/core boundaries
-    
-- disciplined source reuse
-    
-- a smaller and cleaner UAE host
-    
-
-then LeUAE is exactly that kind of project.
-
----
-
-## Guiding Sentence
-
-> **LeUAE is not a struggle to rebuild a foreign dependency forest on Leopard.  
-> It is a deliberate reconstruction of the UAE host around the native contracts of Mac OS X 10.5.8 on PowerPC.**
+LeanUAE is being shaped deliberately before it is allowed to spread.
 
 ---
 
 ## License
 
-## License
+**GPL-2.0**
 
-LeUAE is released under the **GNU General Public License v2.0 (GPL-2.0)**,
-following the licensing conditions of the inherited FS-UAE / UAE code base.
+LeanUAE follows the licensing requirements of the inherited FS-UAE / UAE code base.
 
-Source provenance and inherited code origins should be documented clearly as the project evolves.
+---
+
+## Guiding Sentences
+
+> **Leopard was the trigger. LeanUAE is the project.**
+
+> **LeanUAE does not port an environment. It extracts a core and lets hosts attach natively.**
+
+> **Primary target first. Clean attachment points always.**
 
 ---
 
@@ -405,3 +458,8 @@ Work in progress.
 Architecture first.  
 Scope first.  
 Truth first.
+
+```
+
+Ich kann dir als Nächstes auch noch eine **deutlich kürzere, härtere GitHub-Frontpage-Version** machen, falls dir diese Fassung für ein README schon fast zu essayistisch ist.
+```
