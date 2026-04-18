@@ -1,0 +1,62 @@
+// !$*UTF8*$!
+{
+	20286C28FDCF999611CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 84C32C002F939518003A3937 /* LeUAE */;
+		activeTarget = 8D0C4E890486CD37000505A6 /* LeUAE */;
+		addToTargets = (
+			8D0C4E890486CD37000505A6 /* LeUAE */,
+		);
+		codeSenseManager = 84C32C072F93953B003A3937 /* Code sense */;
+		executables = (
+			84C32C002F939518003A3937 /* LeUAE */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 798201112;
+			PBXWorkspaceStateSaveDate = 798201112;
+		};
+		sourceControlManager = 84C32C062F93953B003A3937 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	84C32C002F939518003A3937 /* LeUAE */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = LeUAE;
+		sourceDirectories = (
+		);
+	};
+	84C32C062F93953B003A3937 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	84C32C072F93953B003A3937 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	8D0C4E890486CD37000505A6 /* LeUAE */ = {
+		activeExec = 0;
+		executables = (
+			84C32C002F939518003A3937 /* LeUAE */,
+		);
+	};
+}
