@@ -1,4 +1,0 @@
-Description: "Low latency video sync"
-Default: 1
-Example: 0
-Type: boolean

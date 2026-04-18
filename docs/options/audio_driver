@@ -1,6 +1,0 @@
-Summary: Audio driver
-Type: Choice
-
-Value: alsa (ALSA)
-Value: sdl (SDL)
-Value: null ("Null")

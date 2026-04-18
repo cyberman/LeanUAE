@@ -1,4 +1,0 @@
-Description: "Use fullscreen spaces (macOS)"
-Default: 0
-Example: 1
-Type: boolean
