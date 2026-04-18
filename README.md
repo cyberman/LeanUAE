@@ -402,8 +402,3 @@ Work in progress.
 Architecture first.  
 Scope first.  
 Truth first.
-
-```
-
-I can also give you a **shorter, sharper GitHub-style README variant** that is less manifesto-like and more immediately repo-friendly.
-```
