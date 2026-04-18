@@ -85,3 +85,14 @@ packages.config
 *.7z
 *.zip
 build/
+
+*.mode1v3
+*.pbxuser
+
+!LeanUAE_Prefix.pch
+
+*.mode1v3
+*.pbxuser
+
+*.mode1v3
+*.pbxuser
