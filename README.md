@@ -459,7 +459,4 @@ Architecture first.
 Scope first.  
 Truth first.
 
-```
-
-Ich kann dir als Nächstes auch noch eine **deutlich kürzere, härtere GitHub-Frontpage-Version** machen, falls dir diese Fassung für ein README schon fast zu essayistisch ist.
-```
+---
